@@ -4,8 +4,6 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks("grunt-env");
 	grunt.loadNpmTasks("grunt-eslint");
-	grunt.loadNpmTasks("grunt-jasmine-nodejs");
-	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-connect");
@@ -23,6 +21,13 @@ module.exports = function(grunt) {
 				},
 				ignorePath: ".eslintignore",
 				/* http://eslint.org/docs/rules/ */
+				globals: [
+							"window",
+							"location",
+							"document",
+							"angular",
+							"$",
+						],
 				rules: {
 					eqeqeq: 0,
 					curly: 2,
@@ -34,16 +39,19 @@ module.exports = function(grunt) {
 				},
 				envs: ["browser", "node", "jasmine"]
 			},
-			client: ["suites/client/**/*.js", "client/**/*.js"],
-			server: ["suites/server/**/*.js", "server/**/*.js"],
-			suites: ["suites/**/*.js"]
-		},
-		clean: {
-			core: ["client/strife.js", "client/strife.css"]
+			client: ["client/scripts/**/*.js", "suites/*/**/*.js"]
 		},
 		concat: {
 			clientjs: {
-				src: ["client/library/angular.js","client/library/jquery.js","client/scripts/**/*.js"],
+				src: ["node_modules/angular/angular.min.js",
+				      "node_modules/jquery/dist/jquery.min.js",
+				      "node_modules/angular-utils-pagination/dirPagination.js",
+				      "client/scripts/modules/*.js",
+				      "client/scripts/providers/*.js",
+				      "client/scripts/filters/*.js",
+				      "client/scripts/directives/*.js",
+				      "client/scripts/controllers/*.js",
+				      "client/scripts/services/*.js"],
 				dest: "client/lcars.js"
 			},
 			clientcs: {
@@ -61,9 +69,25 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		templify: {
+			testing: {
+				templates: [{
+					path: "client/templates/",
+					rewrite: function(path) {
+						return path.substring(path.lastIndexOf("/") + 1);
+					}
+				}],
+				suffixes: [".html"],
+				mode: "karma-angular",
+				output: "../../client/templates.js"
+			}
+		},
 		open : {
-			dev : {
-				path: "http://127.0.0.1:3080/"
+			client : {
+				path: "http://127.0.0.1:3080/index.html"
+			},
+			karma: {
+				path: "http://127.0.0.1:5060/"
 			}
 		},
 		ngAnnotate: {
@@ -86,56 +110,7 @@ module.exports = function(grunt) {
 					livereloadOnError: false
 				},
 				files: ["client/scripts/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
-				tasks: ["core", "dev"]
-			}
-		},
-		jasmine_nodejs: {
-			options: {
-				specNameSuffix: "-test.js",
-				helperNameSuffix: "-assist.js",
-				useHelpers: true,
-				stopOnFailure: true,
-				reporters: {
-					console: {
-						colors: true,        // (0|false)|(1|true)|2
-						cleanStack: 1,       // (0|false)|(1|true)|2|3
-						verbosity: 4,        // (0|false)|1|2|3|(4|true)
-						listStyle: "indent", // "flat"|"indent"
-						activity: false
-					},
-					junit: {
-						savePath : "./suites/reports/",
-						filePrefix: "report-",
-						useDotNotation: true,
-						consolidate: false
-					}
-				}
-			},
-			unit: {
-				specs: "./suites/unit/**",
-				helpers: ["./suites/assist/**"]
-			},
-			integration: {
-				specs: "./suites/integration/**",
-				helpers: ["./suites/assist/**"]
-			},
-			functional: {
-				specs: "./suites/functional/**",
-				helpers: ["./suites/assist/**"]
-			}
-		},
-		yuidoc: {
-			compile: {
-				name: "<%= pkg.name %>",
-				description: "<%= pkg.description %>",
-				version: "<%= pkg.version %>",
-				url: "<%= pkg.homepage %>",
-				options: {
-					paths: ["./client/scripts/"],
-					outdir: "./documentation",
-					exclude: "**/angular.js, **/jquery.js",
-					markdown: true
-				}
+				tasks: ["dev"]
 			}
 		},
 		uglify: {
@@ -147,7 +122,7 @@ module.exports = function(grunt) {
 		},
 		karma: {
 			options: {
-				reporters: ["spec", "junit", "html"],
+				reporters: ["spec", "junit", "live-html"],
 				frameworks: ["jasmine"],
 				singleRun: true,
 				browsers: ["PhantomJS", "Firefox", "IE", "Chrome"],
@@ -161,44 +136,103 @@ module.exports = function(grunt) {
 					properties: {} // key value pair of properties to add to the <properties> section of the report
 				},
 				htmlReporter: {
-					outputFile: "reports/general.html"
+					outputFile: "./reports/general.html"
+				},
+				htmlLiveReporter: {
+					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
+					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
+					// only show one suite and fail log at a time, with keyboard navigation
+					focusMode: true,
+				},
+				specReporter: {
+					maxLogLines: 1,         // limit number of lines logged per test 
+					suppressErrorSummary: true,  // do not print error summary 
+					suppressFailed: false,  // do not print information about failed tests 
+					suppressPassed: false,  // do not print information about passed tests 
+					suppressSkipped: true,  // do not print information about skipped tests 
+					showSpecTiming: false // print the time elapsed for each spec 
 				},
 				/*logLevel: "debug",*/
-				files: [
-					"client/scripts/angular.js",
-					"client/scripts/jquery.js",
-					"client/scripts/core.js",
-					"client/scripts/start.js",
-					"shims/angular-shim.js",
-					]
+				files: ["node_modules/angular-mocks/angular-mock.js",
+					    "node_modules/jquery/dist/jquery.min.js",
+						"client/templates.js",
+						"client/lcars.js",
+						"suites/unit/*.js"]
 			},
 			unit: {
-				singleRun: false,
+				/*
+				files: ["node_modules/angular/angular.min.js",
+					    "node_modules/jquery/dist/jquery.min.js",
+						"client/templates.js",
+						"client/lcars.js",
+						"node_modules/angular-mocks/angular-mock.js",
+						"suites/unit/*.js"],
+						*/
+				singleRun: true,
+			},
+			integration: {
+				/*
+				files: ["node_modules/angular/angular.min.js",
+					    "node_modules/jquery/dist/jquery.min.js",
+						"client/templates.js",
+						"client/lcars.js",
+						"node_modules/angular-mocks/angular-mock.js",
+						"suites/integration/*.js"],
+						*/
+				singleRun: true,
+			},
+			functional: {
+				/*
+				files: ["node_modules/angular/angular.min.js",
+					    "node_modules/jquery/dist/jquery.min.js",
+						"client/templates.js",
+						"client/lcars.js",
+						"node_modules/angular-mocks/angular-mock.js",
+						"suites/functional/*.js"],
+						*/
+				singleRun: true,
 			},
 			continuous: {
+				/*
+				files: ["node_modules/angular/angular.min.js",
+					    "node_modules/jquery/dist/jquery.min.js",
+						"client/templates.js",
+						"client/lcars.js",
+						"node_modules/angular-mocks/angular-mock.js",
+						"suites/unit/*.js"],
+						*/
 				singleRun: false
-			},
-			backgroundUnit: {
-				background: false,
-				autoWatch: false
 			}
 		},
+		yuidoc: {
+			compile: {
+				name: "<%= pkg.name %>",
+				description: "<%= pkg.description %>",
+				version: "<%= pkg.version %>",
+				url: "<%= pkg.homepage %>",
+				options: {
+					paths: ["./client/scripts/"],
+					outdir: "./docs",
+					exclude: "**/angular.js, **/jquery.js",
+					markdown: true
+				}
+			}
+		}
 	};
+
+	if(process.argv.indexOf("headless") !== -1) {
+		config.karma.options.browsers = ["PhantomJS"];
+	}
 	
 	grunt.initConfig(config);
 
 	grunt.registerTask("lint", ["eslint:client"]);
-	grunt.registerTask("unit", ["eslint:client", "jasmine_nodejs:unit"]);
-	grunt.registerTask("integration", ["eslint:client", "jasmine_nodejs:integration"]);
-	grunt.registerTask("functional", ["eslint:client", "jasmine_nodejs:functional"]);
-	grunt.registerTask("test", ["eslint:client", "tests"]);
-	grunt.registerTask("tests", "jasmine_nodejs:unit", "jasmine_nodejs:integration", "jasmine_nodejs:functional"]);
 	grunt.registerTask("doc", ["eslint:client", "yuidoc"]);
 	grunt.registerTask("dev", ["eslint:client", "concat:clientjs", "concat:clientcs"]);
 	grunt.registerTask("prod", ["dev", "ngAnnotate:client", "uglify:client"]);
-	grunt.registerTask("client", ["dev", "jasmine_nodejs:unit", "connect", "open", "watch:client"]);
 
-	grunt.registerTask("lint", ["eslint:server", "eslint:client"]);
+	grunt.registerTask("headless", []);
 
-	grunt.registerTask("default", "test");
+	grunt.registerTask("default", ["dev", "connect", "open:client", "watch"]);
+	grunt.registerTask("development", ["templify:testing", "open:karma", "karma:continuous"]);
 };

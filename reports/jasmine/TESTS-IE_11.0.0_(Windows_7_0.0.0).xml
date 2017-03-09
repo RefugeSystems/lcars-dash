@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<testsuite name="IE 11.0.0 (Windows 7 0.0.0)" package="" timestamp="2017-03-09T04:04:55" id="0" hostname="Anemoi" tests="0" errors="1" failures="0" time="0">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko"/>
+  </properties>
+  <system-out>
+    <![CDATA[PhantomJS 2.1.1 (Windows 7 0.0.0) ERROR
+  Error: [$injector:nomod] http://errors.angularjs.org/1.6.3/$injector/nomod?p0=foundation
+  at node_modules/angular/angular.min.js:26
+,Firefox 52.0.0 (Windows 7 0.0.0) ERROR
+  Error: [$injector:nomod] http://errors.angularjs.org/1.6.3/$injector/nomod?p0=foundation
+  at node_modules/angular/angular.min.js:6
+,IE 11.0.0 (Windows 7 0.0.0) ERROR
+  [$injector:nomod] http://errors.angularjs.org/1.6.3/$injector/nomod?p0=foundation
+  at node_modules/angular/angular.min.js:26
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
