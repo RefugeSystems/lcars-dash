@@ -43,8 +43,8 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			clientjs: {
-				src: ["node_modules/angular/angular.min.js",
-				      "node_modules/jquery/dist/jquery.min.js",
+				src: ["node_modules/angular/angular.js",
+				      "node_modules/jquery/dist/jquery.js",
 				      "node_modules/angular-utils-pagination/dirPagination.js",
 				      "client/scripts/modules/*.js",
 				      "client/scripts/providers/*.js",
