@@ -1,0 +1,7 @@
+<div class="information">
+	<div ng-repeat="information in informations">
+		<div class="info" ng-if="information.type === 'date'">{{information.value | lcarsDate}}</div>
+		<div class="info" ng-if="information.type === undefined">{{information.value}}</div>
+		<div class="divider" ng-if="!$last"></div>
+	</div>
+</div>

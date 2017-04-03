@@ -4,7 +4,15 @@
 		<link type="text/css" href="./lcars.css" rel="stylesheet">
 	</head>
 	<body ng-app="lcars">
-		<lcars-panel interface="primaryNavigation" layout="navigation-top"></lcars-panel>
+		<div class="lcars-panel">
+			<lcars-indicator class="lcars-info lcars-horizontal" lcars-source="system.info"></lcars-indicator>
+			<lcars-navigation class="lcars-info lcars-vertical" lcars-source="system.navigation"></lcars-navigation>
+			<lcars-status class="lcars-info lcars-horizontal" lcars-source="system.status"></lcars-status>
+			
+			<div class="lcars-panel" ng-view>
+			</div>
+		</div>
+		
 		<script src="./lcars.js"></script>
 	</body>
 </html>
