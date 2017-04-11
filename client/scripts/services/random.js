@@ -1,13 +1,12 @@
 
 /**
- * Provides static references to randomization functions.
- * @static
+ * Provides references to randomization functions.
  * @class random
- * @module Augmentations
- * @namespace frame
+ * @module services
  */
-(function() {
-
+angular.module("lcars").service("lcRandom", function() {
+	var service = this;
+	
 	/**
 	 * Quick reference array for generating random strings
 	 * @private
@@ -16,46 +15,29 @@
 	 */
 	var alphanumeric = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-	var random = function(range, min) {
+	this.number = function(range, min) {
 		if(min) {
 			return Math.random() * range + min;
 		}
 		return Math.random() * range;
 	};
 
-	var randomInt = function(range, min) {
+	this.integer = function(range, min) {
 		if(min) {
 			return Math.floor(Math.random() * range + min);
 		}
 		return Math.floor(Math.random() * range);
 	};
 
-	var randomString = function(len) {
+	this.string = function(len) {
 		if(len) {
-			var string = alphanumeric[randomInt(alphanumeric.length)];
+			var string = alphanumeric[service.integer(alphanumeric.length)];
 			while(string.length < len) {
-				string += alphanumeric[randomInt(alphanumeric.length)];
+				string += alphanumeric[service.integer(alphanumeric.length)];
 			}
 			return string;
 		} else {
 			return null;
 		}
 	};
-
-	var rID = function() {
-		var rid = new Date().toString().hashCode();
-		if(rid < 0) {
-			rid = -1* rid;
-		}
-		rid = "" + rid;
-		rid = randomString(32 - rid.length).concat(rid);
-		return rid;
-	};
-	
-	
-	frame.random = {};
-	
-	frame.random.float = random;
-	frame.random.int = randomInt;
-	frame.random.string = randomString;
-})();
+});

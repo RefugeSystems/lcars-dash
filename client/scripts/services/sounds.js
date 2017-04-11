@@ -1,4 +1,10 @@
-angular.module("lcars").service("sounds", function(_log) {
+
+/**
+ * Provides access to sound effects.
+ * @class sounds
+ * @module services
+ */
+angular.module("lcars").service("lcSounds", function(_log) {
 	var service = this;
 	var sounds = {};
 	var active = true;
