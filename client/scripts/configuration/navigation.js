@@ -1,5 +1,5 @@
 
-angular.module("lcars").config(function($routeProvider) {
+angular.module("lcars").config(function($routeProvider, $locationProvider) {
 	var date = new Date();
 	console.log("LCARS Loading - " + date.toString());
 	
@@ -11,4 +11,7 @@ angular.module("lcars").config(function($routeProvider) {
 //		,"system": anchor
 	})
 	.otherwise("/missing");
+	
+	$locationProvider
+	.html5Mode(true);
 });
