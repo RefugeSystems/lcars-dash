@@ -45,7 +45,10 @@ module.exports = function(grunt) {
 				},
 				envs: ["browser", "node", "jasmine"]
 			},
-			client: ["client/scripts/**/*.js", "suites/*/**/*.js"]
+			client: ["client/scripts/**/*.js",
+			         "suites/integration/**/*.js",
+			         "suites/unit/**/*.js",
+			         "suites/functional/**/*.js"]
 		},
 		concat: {
 			clientjs: {
@@ -149,7 +152,7 @@ module.exports = function(grunt) {
 				reporters: ["spec", "junit", "live-html"],
 				frameworks: ["jasmine"],
 				singleRun: true,
-				browsers: ["PhantomJS", "Firefox", "Chrome"],
+				browsers: ["PhantomJS", "Chrome"],
 				junitReporter: {
 					outputDir: "./reports/jasmine", // results will be saved as $outputDir/$browserName.xml
 					outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
@@ -268,6 +271,12 @@ module.exports = function(grunt) {
 	if(process.argv.indexOf("headless") !== -1) {
 		config.karma.options.browsers = ["PhantomJS"];
 	}
+
+	if(process.argv.indexOf("add-ff") !== -1) {
+//		config.karma.options.browsers.splice(config.karma.options.browsers.indexOf("Firefox"), 1);
+		config.karma.options.browsers.push("Firefox");
+		console.log("Add firefox - ", config.karma.options.browsers);
+	}
 	
 	grunt.initConfig(config);
 	
@@ -278,7 +287,9 @@ module.exports = function(grunt) {
 	grunt.registerTask("prod", ["dev", "ngAnnotate:client", "uglify:client"]);
 
 	grunt.registerTask("headless", []);
+	grunt.registerTask("add-ff", []);
 
+	grunt.registerTask("local", ["default"]);
 	grunt.registerTask("document", ["eslint:client", "yuidoc", "connect:docs", "open:docs", "watch:docs"]);
 	grunt.registerTask("general", ["dev", "connect:server", "open:client", "watch:client"]);
 	grunt.registerTask("testing", ["templify:testing", "open:karma", "karma:continuous"]);
