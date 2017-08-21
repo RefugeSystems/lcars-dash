@@ -8,5 +8,5 @@ pids
 node_modules
 jspm_packages
 build
-suites
 docs
+reports

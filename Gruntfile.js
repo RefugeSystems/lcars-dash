@@ -26,7 +26,13 @@ module.exports = function(grunt) {
 							"location",
 							"document",
 							"angular",
-							"$",
+							"inject",
+							"module",
+							"localStorage",
+							"sessionStorage",
+							"Highcharts",
+							"Cytoscape",
+							"$"
 						],
 				rules: {
 					eqeqeq: 0,
@@ -45,6 +51,7 @@ module.exports = function(grunt) {
 			clientjs: {
 				src: ["node_modules/angular/angular.js",
 				      "node_modules/jquery/dist/jquery.js",
+				      "node_modules/angular-route/angular-route.js",
 				      "node_modules/angular-utils-pagination/dirPagination.js",
 				      "client/library/*.js",
 				      "client/scripts/modules/*.js",
@@ -70,6 +77,13 @@ module.exports = function(grunt) {
 					hostname: "localhost",
 					livereload: 3081
 				}
+			},
+			docs: {
+				options: {
+					port: 3090,
+					base: "docs/",
+					hostname: "localhost"
+				}
 			}
 		},
 		templify: {
@@ -88,6 +102,9 @@ module.exports = function(grunt) {
 		open : {
 			client : {
 				path: "http://127.0.0.1:3080/index.html"
+			},
+			docs : {
+				path: "http://127.0.0.1:3090/index.html"
 			},
 			karma: {
 				path: "http://127.0.0.1:5060/"
@@ -114,6 +131,10 @@ module.exports = function(grunt) {
 				},
 				files: ["client/scripts/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
 				tasks: ["dev"]
+			},
+			docs: {
+				files: ["client/scripts/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
+				tasks: ["yuidoc"]
 			}
 		},
 		uglify: {
@@ -128,7 +149,7 @@ module.exports = function(grunt) {
 				reporters: ["spec", "junit", "live-html"],
 				frameworks: ["jasmine"],
 				singleRun: true,
-				browsers: ["PhantomJS", "Firefox", "IE", "Chrome"],
+				browsers: ["PhantomJS", "Firefox", "Chrome"],
 				junitReporter: {
 					outputDir: "./reports/jasmine", // results will be saved as $outputDir/$browserName.xml
 					outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
@@ -156,10 +177,19 @@ module.exports = function(grunt) {
 					showSpecTiming: false // print the time elapsed for each spec 
 				},
 				/*logLevel: "debug",*/
-				files: ["node_modules/angular-mocks/angular-mock.js",
+				files: ["node_modules/angular/angular.js",
+	        			"node_modules/angular-mocks/angular-mocks.js",
 					    "node_modules/jquery/dist/jquery.min.js",
+	        			"suites/support/*.js",
+	    				"scenarios/data/*.js",
 						"client/templates.js",
-						"client/lcars.js",
+						"client/scripts/modules/*.js",
+						"client/scripts/configuration/*.js",
+						"client/scripts/controllers/*.js",
+						"client/scripts/directives/*.js",
+						"client/scripts/providers/*.js",
+						"client/scripts/services/*.js",
+						"client/scripts/filters/*.js",
 						"suites/unit/*.js"]
 			},
 			unit: {
@@ -220,7 +250,19 @@ module.exports = function(grunt) {
 					markdown: true
 				}
 			}
-		}
+		},
+		concurrent: {
+			development: {
+				tasks: [
+						/*Docs*/ ["document"],
+						/*Test*/ ["testing"],
+						/*Run */ ["general"],
+				],
+				options: {
+					logConcurrentOutput: true
+				}
+			}
+        }
 	};
 
 	if(process.argv.indexOf("headless") !== -1) {
@@ -228,14 +270,16 @@ module.exports = function(grunt) {
 	}
 	
 	grunt.initConfig(config);
+	
+	grunt.registerTask("default", ["lint", "concurrent:development"]);
 
 	grunt.registerTask("lint", ["eslint:client"]);
-	grunt.registerTask("doc", ["eslint:client", "yuidoc"]);
 	grunt.registerTask("dev", ["eslint:client", "concat:clientjs", "concat:clientcs"]);
 	grunt.registerTask("prod", ["dev", "ngAnnotate:client", "uglify:client"]);
 
 	grunt.registerTask("headless", []);
 
-	grunt.registerTask("default", ["dev", "connect", "open:client", "watch"]);
-	grunt.registerTask("development", ["templify:testing", "open:karma", "karma:continuous"]);
+	grunt.registerTask("document", ["eslint:client", "yuidoc", "connect:docs", "open:docs", "watch:docs"]);
+	grunt.registerTask("general", ["dev", "connect:server", "open:client", "watch:client"]);
+	grunt.registerTask("testing", ["templify:testing", "open:karma", "karma:continuous"]);
 };

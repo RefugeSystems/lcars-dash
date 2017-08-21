@@ -54,8 +54,13 @@
   },
   "dependencies": {
     "angular": "^1.6.3",
+    "angular-route": "^1.6.6",
     "angular-utils-pagination": "^0.11.1",
+    "cytoscape": "^3.2.1",
+    "cytoscape-cola": "^2.0.0",
+    "grunt-concurrent": "^2.3.1",
     "jquery": "^3.1.1",
+    "ng-showdown": "^1.1.0",
     "socket.io": "^1.7.3"
   }
 }
