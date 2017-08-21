@@ -1,0 +1,313 @@
+/* Some References:
+https://codepen.io/Mokurunner/details/eqtHl
+
+*/
+
+body {
+  background: black;
+}
+
+div {
+  font-family: Trebuchet MS, sans-serif;
+  font-size: 125%;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 90px;
+}
+
+#year1 {
+  width: 220px;
+  height: 75px;
+  background: #3F403F;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex1 {
+  width: 220px;
+  height: 75px;
+  background: #ffff99;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex2 {
+  width: 220px;
+  height: 75px;
+  background: #ffcc66;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+#hex3 {
+  width: 220px;
+  height: 75px;
+  background: #ff9933;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex4 {
+  width: 220px;
+  height: 75px;
+  background: #664466;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex5 {
+  width: 220px;
+  height: 75px;
+  background: #cc99cc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex6 {
+  width: 220px;
+  height: 75px;
+  background: #99ccff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex7 {
+  width: 220px;
+  height: 75px;
+  background: #3366cc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex8 {
+  width: 220px;
+  height: 75px;
+  background: #006699;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex9 {
+  width: 220px;
+  height: 75px;
+  background: #9999cc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex10 {
+  width: 220px;
+  height: 75px;
+  background: #9999ff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex11 {
+  width: 220px;
+  height: 75px;
+  background: #cc99cc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex12 {
+  width: 220px;
+  height: 75px;
+  background: #cc6699;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex13 {
+  width: 220px;
+  height: 75px;
+  background: #cc6666;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex14 {
+  width: 220px;
+  height: 75px;
+  background: #ff9966;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex15 {
+  width: 220px;
+  height: 75px;
+  background: #ff9900;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex16 {
+  width: 220px;
+  height: 75px;
+  background: #ffcc66;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex17 {
+  width: 220px;
+  height: 75px;
+  background: #6688cc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex18 {
+  width: 220px;
+  height: 75px;
+  background: #4455bb;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex19 {
+  width: 220px;
+  height: 75px;
+  background: #9977aa;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex20 {
+  width: 220px;
+  height: 75px;
+  background: #774466;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex21 {
+  width: 220px;
+  height: 75px;
+  background: #dd6644;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex22 {
+  width: 220px;
+  height: 75px;
+  background: #aa5533;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex23 {
+  width: 220px;
+  height: 75px;
+  background: #bb6622;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex24 {
+  width: 220px;
+  height: 75px;
+  background: #ee9955;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex25 {
+  width: 220px;
+  height: 75px;
+  background: #ccddff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex26 {
+  width: 220px;
+  height: 75px;
+  background: #5599ff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex27 {
+  width: 220px;
+  height: 75px;
+  background: #3366ff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+
+}
+
+#hex28 {
+  width: 220px;
+  height: 75px;
+  background: #0011ee;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex29 {
+  width: 220px;
+  height: 75px;
+  background: #000088;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex30 {
+  width: 220px;
+  height: 75px;
+  background: #bbaa55;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex31 {
+  width: 220px;
+  height: 75px;
+  background: #bb4411;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+#hex32 {
+  width: 220px;
+  height: 75px;
+  background: #882211;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
