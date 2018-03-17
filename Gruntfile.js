@@ -238,6 +238,11 @@ module.exports = function(grunt) {
 						"suites/unit/*.js"],
 						*/
 				singleRun: false
+			},
+			deployment: {
+				reporters: ["spec", "junit"],
+				browsers: ["PhantomJS"],
+				singleRun: true
 			}
 		},
 		yuidoc: {
@@ -293,4 +298,6 @@ module.exports = function(grunt) {
 	grunt.registerTask("document", ["eslint:client", "yuidoc", "connect:docs", "open:docs", "watch:docs"]);
 	grunt.registerTask("general", ["dev", "connect:server", "open:client", "watch:client"]);
 	grunt.registerTask("testing", ["templify:testing", "open:karma", "karma:continuous"]);
+	
+	grunt.registerTask("deploy", ["templify:testing", "open:karma", "karma:continuous"]);
 };
