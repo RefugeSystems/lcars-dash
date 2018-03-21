@@ -1,0 +1,37 @@
+.lcars.info.passive {
+	color: #ff9933;
+}
+
+.lcars.info.active {
+	color: #99ccff;
+}
+
+.lcars.info.option {
+	color: #882211;
+}
+
+.lcars.info.property {
+	color: #4455bb;
+}
+
+.lcars.info.note {
+	color: #664466;
+}
+
+.lcars.info.configuration {
+	color: #bb6622;
+}
+
+
+
+.lcars.info.functional {
+	color: #000088;
+}
+
+.lcars.info.warning {
+	color: #bbaa55;
+}
+
+.lcars.info.exception {
+	color: #882211;
+}

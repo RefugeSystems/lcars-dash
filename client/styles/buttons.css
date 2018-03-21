@@ -1,0 +1,111 @@
+div.lcars.v button.lcars {
+	/*position: relative;
+	display: inline-block;*/
+	width: 160px;
+	height: 65px;
+	border-bottom: 5px solid black;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	
+	cursor: pointer;
+	
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 600;
+    position: relative;
+}
+
+div.lcars.bottom button.lcars span {
+	bottom: 4px;
+}
+
+div.lcars.top button.lcars span {
+	top: 4px;
+}
+
+div.lcars.left button.lcars span {
+	right: 8px;
+}
+
+div.lcars.right button.lcars span {
+	left: 8px;
+}
+
+div.lcars.v button.lcars:hover,
+div.lcars.v button.lcars:active,
+div.lcars.v button.lcars:focus {
+	outline: none;
+}
+
+button.lcars span {
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 600;
+	position: absolute;
+	display: inline-block;
+	width: 144px;
+}
+
+.lcars.left button.lcars {
+	text-align: right;
+}
+
+.lcars.right button.lcars {
+	text-align: left;
+}
+
+button.lcars.bottom span {
+	bottom: 7px;
+}
+
+button.lcars.top span {
+	top: 7px;
+}
+
+button.lcars.passive {
+	background-color: #ff9933;
+	color: black;
+}
+
+button.lcars.active {
+	background-color: #99ccff;
+	color: black;
+}
+
+button.lcars.option {
+	background-color: #882211;
+	color: black;
+}
+
+button.lcars.property {
+	background-color: #4455bb;
+	color: black;
+}
+
+button.lcars.note {
+	background-color: #664466;
+	color: black;
+}
+
+button.lcars.configuration {
+	background-color: #bb6622;
+	color: black;
+}
+
+
+
+button.lcars.functional {
+	background-color: #000088;
+	color: black;
+}
+
+button.lcars.warning {
+	background-color: #bbaa55;
+	color: black;
+}
+
+button.lcars.exception {
+	background-color: #882211;
+	color: black;
+}

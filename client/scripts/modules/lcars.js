@@ -1,1 +1,1 @@
-angular.module("lcars", []);
+angular.module("lcars", ["ngRoute"]);

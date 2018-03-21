@@ -1,0 +1,105 @@
+
+div.lcars.height.x1 div.lcars.container.height,
+div.lcars.height.x1 div.lcars.bar.height,
+div.lcars.container.height.x1,
+div.lcars.bar.height.x1 {
+	height: 120px;
+}
+
+div.lcars.height.x2 div.lcars.container.height,
+div.lcars.height.x2 div.lcars.bar.height,
+div.lcars.container.height.x2,
+div.lcars.bar.height.x2 {
+	height: 190px;
+}
+
+div.lcars.height.x3 div.lcars.container.height,
+div.lcars.height.x3 div.lcars.bar.height,
+div.lcars.container.height.x3,
+div.lcars.bar.height.x3 {
+	height: 260px;
+}
+
+div.lcars.height.x4 div.lcars.container.height,
+div.lcars.height.x4 div.lcars.bar.height,
+div.lcars.container.height.x4,
+div.lcars.bar.height.x4 {
+	height: 330px;
+}
+
+div.lcars.height.x5 div.lcars.container.height,
+div.lcars.height.x5 div.lcars.bar.height,
+div.lcars.container.height.x5,
+div.lcars.bar.height.x5 {
+	height: 400px;
+}
+
+div.lcars.height.x6 div.lcars.container.height,
+div.lcars.height.x6 div.lcars.bar.height,
+div.lcars.container.height.x6,
+div.lcars.bar.height.x6 {
+	height: 470px;
+}
+
+div.lcars.height.x7 div.lcars.container.height,
+div.lcars.height.x7 div.lcars.bar.height,
+div.lcars.container.height.x7,
+div.lcars.bar.height.x7 {
+	height: 540px;
+}
+
+div.lcars.height.x8 div.lcars.container.height,
+div.lcars.height.x8 div.lcars.bar.height,
+div.lcars.container.height.x8,
+div.lcars.bar.height.x8 {
+	height: 610px;
+}
+
+div.lcars.height.xF div.lcars.container.height,
+div.lcars.height.xF div.lcars.bar.height,
+div.lcars.container.height.xF,
+div.lcars.bar.height.xF {
+	height: 100%;
+}
+
+div.lcars.height.x1 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x1 {
+    height: 50px;
+}
+
+div.lcars.height.x1 div.lcars.display.major.height,
+div.lcars.display.major.height.x1 {
+    height: 20px;
+}
+
+div.lcars.height.x2 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x2 {
+    height: 120px;
+}
+
+div.lcars.height.x2 div.lcars.display.major.height,
+div.lcars.display.major.height.x2 {
+    height: 90px;
+}
+
+div.lcars.height.x3 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x3 {
+    height: 190px;
+}
+
+div.lcars.height.x3 div.lcars.display.major.height,
+div.lcars.display.major.height.x3 {
+    height: 160px;
+}
+
+div.lcars.height.xF div.lcars.display.minor.height,
+div.lcars.display.minor.height.xF {
+    top: 0px;
+    bottom: 30px;
+}
+
+div.lcars.height.xF div.lcars.display.major.height,
+div.lcars.display.major.height.xF {
+    top: 0px;
+    bottom: 60px;
+}

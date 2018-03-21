@@ -3,3 +3,93 @@ https://codepen.io/Mokurunner/details/eqtHl
 
 */
 
+.lcars-bar {
+	position: relative;
+	display: inline-block;
+	height: 36px;
+	vertical-align: bottom;
+	padding: 2px;
+}
+
+.lcars-wrapbar {
+	position: relative;
+	display: inline-block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-crossbar {
+	position: relative;
+	display: inline-block;
+	height: 30px;
+	padding: 0px;
+}
+
+.lcars-display {
+	color: #ff9933;
+	text-transform: uppecase;
+}
+
+.lcars-wrapbar button {
+	position: relative;
+	display: block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-wrapbar button {
+	position: relative;
+	display: block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-wrapbar.left-bottom {
+    border-bottom-left-radius: 80px;
+}
+
+.lcars-wrapbar.left-top {
+    border-top-left-radius: 80px;
+}
+
+.lcars-wrapbar.right-bottom {
+    border-bottom-right-radius: 80px;
+}
+
+.lcars-wrapbar.right-top {
+    border-top-right-radius: 80px;
+}
+
+.lcars-bottom {
+	vertical-align: bottom;
+}
+
+.lcars-top {
+	vertical-align: top;
+}
+
+.lcars-button {
+	line-height: 16px;
+	font-size: 16px;
+	color: black;
+	font-weight: 600;
+}
+
+.lcars-information {
+	line-height: 20px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.lcars-bar-end-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.lcars-bar-end-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

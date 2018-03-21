@@ -4,7 +4,7 @@
  * @class sounds
  * @module services
  */
-angular.module("lcars").service("lcSounds", function(_log) {
+angular.module("lcars").service("lcSounds", function() {
 	var service = this;
 	var sounds = {};
 	var active = true;
@@ -31,7 +31,7 @@ angular.module("lcars").service("lcSounds", function(_log) {
 		if(sounds[key]) {
 			sounds[key].play();
 		} else {
-			_log.warn("No sound index for " + key);
+			console.warn("No sound index for " + key);
 		}
 	};
 

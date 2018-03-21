@@ -1,0 +1,37 @@
+div.lcars.block.passive {
+	background-color: #ff9933;
+}
+
+div.lcars.block.active {
+	background-color: #99ccff;
+}
+
+div.lcars.block.option {
+	background-color: #882211;
+}
+
+div.lcars.block.property {
+	background-color: #4455bb;
+}
+
+div.lcars.block.note {
+	background-color: #664466;
+}
+
+div.lcars.block.configuration {
+	background-color: #bb6622;
+}
+
+
+
+div.lcars.block.functional {
+	background-color: #000088;
+}
+
+div.lcars.block.warning {
+	background-color: #bbaa55;
+}
+
+div.lcars.block.exception {
+	background-color: #882211;
+}

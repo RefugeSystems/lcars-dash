@@ -1,5 +1,4 @@
 
-
 angular.module("lcars").service("connection", function() {
 	var ws = new WebSocket("ws:\\localhost:8000");
 
@@ -7,8 +6,15 @@ angular.module("lcars").service("connection", function() {
 		console.log("Message: ", data);
 	};
 	
-	ws.onclose = function(a,b) {console.log("Close: ", a, b);};
-	ws.onerror = function(a,b) {console.log("Error: ", a, b);};
-	ws.onopen = function(a,b) {console.log("Open: ", a, b);};
-
+	ws.onclose = function(a,b) {
+		console.log("Close: ", a, b);
+	};
+	
+	ws.onerror = function(a,b) {
+		console.log("Error: ", a, b);
+	};
+	
+	ws.onopen = function(a,b) {
+		console.log("Open: ", a, b);
+	};
 });
