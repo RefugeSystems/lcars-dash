@@ -162,10 +162,8 @@ module.exports = function(grunt) {
 		},
 		karma: {
 			options: {
-				reporters: ["spec", "junit", "live-html"],
 				frameworks: ["jasmine"],
 				singleRun: true,
-				browsers: ["PhantomJS", "Chrome"],
 				junitReporter: {
 					outputDir: "./reports/jasmine", // results will be saved as $outputDir/$browserName.xml
 					outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
@@ -174,15 +172,6 @@ module.exports = function(grunt) {
 					nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
 					classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
 					properties: {} // key value pair of properties to add to the <properties> section of the report
-				},
-				htmlReporter: {
-					outputFile: "./reports/general.html"
-				},
-				htmlLiveReporter: {
-					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
-					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
-					// only show one suite and fail log at a time, with keyboard navigation
-					focusMode: true,
 				},
 				specReporter: {
 					maxLogLines: 1,         // limit number of lines logged per test 
@@ -218,6 +207,16 @@ module.exports = function(grunt) {
 						"suites/unit/*.js"],
 						*/
 				singleRun: true,
+				browsers: ["PhantomJS", "Chrome"],
+				htmlReporter: {
+					outputFile: "./reports/general.html"
+				},
+				htmlLiveReporter: {
+					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
+					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
+					// only show one suite and fail log at a time, with keyboard navigation
+					focusMode: true,
+				}
 			},
 			integration: {
 				/*
@@ -229,6 +228,17 @@ module.exports = function(grunt) {
 						"suites/integration/*.js"],
 						*/
 				singleRun: true,
+				reporters: ["spec", "junit", "live-html"],
+				browsers: ["PhantomJS", "Chrome"],
+				htmlReporter: {
+					outputFile: "./reports/general.html"
+				},
+				htmlLiveReporter: {
+					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
+					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
+					// only show one suite and fail log at a time, with keyboard navigation
+					focusMode: true,
+				}
 			},
 			functional: {
 				/*
@@ -240,6 +250,17 @@ module.exports = function(grunt) {
 						"suites/functional/*.js"],
 						*/
 				singleRun: true,
+				reporters: ["spec", "junit", "live-html"],
+				browsers: ["PhantomJS", "Chrome"],
+				htmlReporter: {
+					outputFile: "./reports/general.html"
+				},
+				htmlLiveReporter: {
+					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
+					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
+					// only show one suite and fail log at a time, with keyboard navigation
+					focusMode: true,
+				}
 			},
 			continuous: {
 				/*
@@ -250,12 +271,25 @@ module.exports = function(grunt) {
 						"node_modules/angular-mocks/angular-mock.js",
 						"suites/unit/*.js"],
 						*/
-				singleRun: false
+				singleRun: false,
+				reporters: ["spec", "junit", "live-html"],
+				browsers: ["PhantomJS", "Chrome"],
+				htmlReporter: {
+					outputFile: "./reports/general.html"
+				},
+				htmlLiveReporter: {
+					colorScheme: "jasmine", // light 'jasmine' or dark 'earthborn' scheme
+					defaultTab: "summary", // 'summary' or 'failures': a tab to start with
+					// only show one suite and fail log at a time, with keyboard navigation
+					focusMode: true,
+				}
 			},
 			deployment: {
 				reporters: ["spec", "junit"],
 				browsers: ["PhantomJS"],
-				singleRun: true
+				singleRun: true,
+				htmlReporter: null,
+				htmlLiveReporter: null
 			}
 		},
 		yuidoc: {
@@ -311,6 +345,7 @@ module.exports = function(grunt) {
 	grunt.registerTask("document", ["eslint:client", "yuidoc", "connect:docs", "open:docs", "watch:docs"]);
 	grunt.registerTask("general", ["dev", "connect:server", "open:client", "watch:client"]);
 	grunt.registerTask("testing", ["templify:testing", "open:karma", "karma:continuous"]);
+	grunt.registerTask("test", ["eslint:client", "templify:testing", "karma:deployment"]);
 	
 	grunt.registerTask("deploy", ["templify:testing", "open:karma", "karma:continuous"]);
 };
