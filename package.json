@@ -36,7 +36,6 @@
     "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-env": "^0.4.4",
     "grunt-eslint": "^17.3.1",
-    "grunt-jasmine-node-istanbul": "0.0.5",
     "grunt-jasmine-nodejs": "^1.4.3",
     "grunt-karma": "^2.0.0",
     "grunt-ng-annotate": "^2.0.2",
