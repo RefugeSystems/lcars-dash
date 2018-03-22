@@ -31,7 +31,8 @@ module.exports = function(grunt) {
 							"localStorage",
 							"sessionStorage",
 							"Highcharts",
-							"Cytoscape",
+							"cola",
+							"cytoscape",
 							"$"
 						],
 				rules: {
@@ -57,7 +58,8 @@ module.exports = function(grunt) {
 				      "node_modules/angular-route/angular-route.js",
 				      "node_modules/angular-utils-pagination/dirPagination.js",
 				      "node_modules/cytoscape/dist/cytoscape.js",
-				      "node_modules/cytoscape-cola/dist/cytoscape-cola.js",
+				      "node_modules/cytoscape-cola/cola.js",
+				      "node_modules/cytoscape-cola/cytoscape-cola.js",
 				      "client/library/*.js",
 				      "client/scripts/modules/*.js",
 				      "client/scripts/configuration/*.js",
@@ -85,7 +87,7 @@ module.exports = function(grunt) {
 					middleware: function(connect, options, middlewares) {
 	                    middlewares.unshift(function(req, res, next) {
 	                        res.setHeader("Access-Control-Allow-Origin", "*");
-	                        res.setHeader("Content-Security-Policy", "default-src 'self' http://127.0.0.1:3081 wss://tower.refugesystems.net:3000 'unsafe-inline' 'unsafe-eval'; media-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: 'http://localhost:3081/livereload.js?snipver=1';");
+	                        res.setHeader("Content-Security-Policy", "default-src 'self' http://127.0.0.1:3081 wss://tower.refugesystems.net:3000 'unsafe-inline' 'unsafe-eval'; media-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: http://localhost:3081;");
 	                        next();
 	                    });
 	                    return middlewares;

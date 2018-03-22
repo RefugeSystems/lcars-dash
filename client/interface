@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>LCARS Test Page</title>
+		<link type="text/css" href="./lcars.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+	</head>
+	<body ng-app="lcars">
+		<div class="lcars-panel">
+			<lcars-indicator class="lcars-info lcars-horizontal" lcars-source="system.info"></lcars-indicator>
+			<lcars-navigation class="lcars-info lcars-vertical" lcars-source="system.navigation"></lcars-navigation>
+			<lcars-status class="lcars-info lcars-horizontal" lcars-source="system.status"></lcars-status>
+			
+			<div class="lcars-panel" ng-view>
+			</div>
+		</div>
+		
+		<script src="./lcars.js"></script>
+	</body>
+</html>

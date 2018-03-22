@@ -1,23 +1,27 @@
 
 angular.module("lcars")
 .config(function($routeProvider, $locationProvider) {
-	var date = new Date();
+	var time = {};
+	time.init = Date.now();
+	time.last = 0;
+	time.next = 0;
+	time.interval = 0;
 
 	$routeProvider
 	.when("/", {
 		"templateUrl": "/templates/mapping.html",
 		"controller": "graph",
-		"init": date
+		"time": time
 	})
-	.when("/map/charting", {
-		"templateUrl": "/templates/mapping.html",
-		"controller": "graph",
-		"init": date
+	.when("/matrix", {
+		"templateUrl": "/templates/matrix.html",
+		"controller": "matrix",
+		"time": time
 	})
 	.when("/tests/sounds", {
 		"templateUrl": "/templates/sounds.html",
 		"controller": "sounding",
-		"init": date
+		"time": time
 	})
 	.when("/denied", {
 		"templateUrl": "/templates/denied.html",
