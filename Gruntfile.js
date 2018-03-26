@@ -33,7 +33,8 @@ module.exports = function(grunt) {
 							"Highcharts",
 							"cola",
 							"cytoscape",
-							"$"
+							"$",
+							"d3"
 						],
 				rules: {
 					eqeqeq: 0,
@@ -66,6 +67,7 @@ module.exports = function(grunt) {
 				      "client/scripts/configuration/*.js",
 				      "client/scripts/providers/*.js",
 				      "client/scripts/filters/*.js",
+				      "client/scripts/factory/*.js",
 				      "client/scripts/directives/*.js",
 				      "client/scripts/controllers/*.js",
 				      "client/scripts/services/*.js"],
@@ -87,7 +89,7 @@ module.exports = function(grunt) {
 					middleware: function(connect, options, middlewares) {
 	                    middlewares.unshift(function(req, res, next) {
 	                        res.setHeader("Access-Control-Allow-Origin", "*");
-	                        res.setHeader("Content-Security-Policy", "default-src 'self' http://127.0.0.1:3081 wss://tower.refugesystems.net:3000 'unsafe-inline' 'unsafe-eval'; media-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: http://localhost:3081;");
+	                        res.setHeader("Content-Security-Policy", "default-src 'self' ws://localhost:3081 http://d3js.org http://127.0.0.1:3081 http://localhost:3081 wss://tower.refugesystems.net:3000 'unsafe-inline' 'unsafe-eval'; media-src 'self' blob: data:; script-src 'self' http://127.0.0.1:3081 http://localhost:3081 'unsafe-inline' 'unsafe-eval' blob: data: ;");
 	                        next();
 	                    });
 	                    return middlewares;

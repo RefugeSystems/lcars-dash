@@ -6,22 +6,66 @@ angular.module("lcars")
 	time.last = 0;
 	time.next = 0;
 	time.interval = 0;
+	
+	var configuration = new Promise(function(done, fail) {
+		$.getJSON("/configuration.json")
+		.then(function(configuration) {
+			configuration = configuration || {};
+			done(configuration);
+		})
+		.catch(fail);
+	});
+	
 
 	$routeProvider
 	.when("/", {
 		"templateUrl": "/templates/mapping.html",
 		"controller": "graph",
-		"time": time
+		"resolve": {
+			"configuration": function() {
+				return configuration;
+			}
+		}
 	})
-	.when("/matrix", {
+	.when("/resources/matrix", {
 		"templateUrl": "/templates/matrix.html",
 		"controller": "matrix",
-		"time": time
+		"resolve": {
+			"configuration": function() {
+				return configuration;
+			}
+		}
+	})
+	.when("/resources/manage/:set", {
+		"templateUrl": "/templates/manage.html",
+		"controller": "resource",
+		"resolve": {
+			"configuration": function() {
+				return configuration;
+			}
+		}
+	})
+	.when("/resources/:display/:set", {
+		"templateUrl": "/templates/display.html",
+		"controller": "resource",
+		"resolve": {
+			"configuration": function() {
+				return configuration;
+			}
+		}
+	})
+	.when("/resources/manage/:set", {
+		"templateUrl": "/templates/manage.html",
+		"controller": "resource",
+		"resolve": {
+			"configuration": function() {
+				return configuration;
+			}
+		}
 	})
 	.when("/tests/sounds", {
 		"templateUrl": "/templates/sounds.html",
-		"controller": "sounding",
-		"time": time
+		"controller": "sounding"
 	})
 	.when("/denied", {
 		"templateUrl": "/templates/denied.html",
@@ -32,7 +76,4 @@ angular.module("lcars")
 		"controller": "missing"
 	})
 	.otherwise("/missing");
-	
-//	$locationProvider
-//	.html5Mode(true);
 });

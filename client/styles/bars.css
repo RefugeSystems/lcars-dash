@@ -1,3 +1,19 @@
+div.lcars.bar {
+	position: absolute;
+}
+
+div.lcars.bar.h {
+	z-index: 1;
+}
+
+div.lcars.bar.v.divide {
+	z-index: 2;
+}
+
+div.lcars.display {
+    z-index: 5;
+}
+
 div.lcars.block.passive {
 	background-color: #ff9933;
 }
@@ -21,8 +37,6 @@ div.lcars.block.note {
 div.lcars.block.configuration {
 	background-color: #bb6622;
 }
-
-
 
 div.lcars.block.functional {
 	background-color: #000088;

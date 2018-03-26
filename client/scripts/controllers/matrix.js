@@ -1,6 +1,6 @@
 angular.module("lcars").controller("matrix", function($scope, lcSystem, lcSounds) {
 	lcSounds.play("open");
-
+	
 	$scope.matrix = cytoscape({
 		"container": document.getElementById("matrix"),
 

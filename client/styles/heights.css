@@ -62,34 +62,46 @@ div.lcars.bar.height.xF {
 	height: 100%;
 }
 
+div.lcars.height.xFlow div.lcars.container.height,
+div.lcars.height.xFlow div.lcars.bar.height,
+div.lcars.container.height.xFlow,
+div.lcars.bar.height.xFlow {
+	height: inherit;
+}
+
 div.lcars.height.x1 div.lcars.display.minor.height,
 div.lcars.display.minor.height.x1 {
-    height: 50px;
+    height: 80px;
 }
 
 div.lcars.height.x1 div.lcars.display.major.height,
 div.lcars.display.major.height.x1 {
-    height: 20px;
+    height: 50px;
 }
 
 div.lcars.height.x2 div.lcars.display.minor.height,
 div.lcars.display.minor.height.x2 {
-    height: 120px;
+    height: 150px;
 }
 
 div.lcars.height.x2 div.lcars.display.major.height,
 div.lcars.display.major.height.x2 {
-    height: 90px;
+    height: 120px;
 }
 
 div.lcars.height.x3 div.lcars.display.minor.height,
 div.lcars.display.minor.height.x3 {
-    height: 190px;
+    height: 220px;
 }
 
 div.lcars.height.x3 div.lcars.display.major.height,
 div.lcars.display.major.height.x3 {
-    height: 160px;
+    height: 190px;
+}
+
+div.lcars.height.xFlow div.lcars.display.height,
+div.lcars.display.height.xFlow {
+    height: inherit;
 }
 
 div.lcars.height.xF div.lcars.display.minor.height,

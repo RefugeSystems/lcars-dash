@@ -1,0 +1,15 @@
+{
+	"log": {
+		"log": true,
+		"trace": true,
+		"debug": true,
+		"info": true,
+		"warn": true,
+		"error": true,
+		"fatal": true
+	},
+	"libraries": [{
+		"name": "Beta",
+		"url": "ws://localhost/"
+	}]
+}

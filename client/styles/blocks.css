@@ -22,10 +22,6 @@ div.lcars.display {
 	border: 0px;
 }
 
-div.lcars.bar {
-	position: absolute;
-}
-
 div.lcars.v {
 	width: 240px;
 }
@@ -58,13 +54,54 @@ div.lcars.container div.lcars.h.bar.left {
 	right: 240px;
 }
 
+div.lcars.container.divide {
+	height: 0px;
+	width: 100%;
+	margin: 5px;
+}
+
 div.lcars.display.tr {
     position: absolute;
 	top: 0px;
 	right: 0px;
 	left: 160px;
-    padding: 0px 0px 40px 40px;
-	border-bottom-left-radius: 40px;
-	z-index: 5;
+    padding: 5px 5px 5px 40px;
+	border-bottom-left-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.tl {
+    position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 160px;
+    padding: 5px 40px 5px 5px;
+	border-bottom-right-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.br {
+    position: absolute;
+    top: 30px;
+	bottom: 0px;
+	right: 0px;
+	left: 160px;
+    padding: 5px 5px 5px 40px;
+	border-top-left-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.bl {
+    position: absolute;
+    top: 30px;
+	bottom: 0px;
+	left: 0px;
+	right: 160px;
+    padding: 5px 40px 5px 5px;
+	border-top-right-radius: 30px;
+	z-index: 3;
 	background-color: black;
 }

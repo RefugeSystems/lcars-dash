@@ -9,4 +9,5 @@
  */
 angular.module("lcars").controller("graph", function($scope, lcSystem, lcSounds) {
 	lcSounds.play("button");
+	
 });

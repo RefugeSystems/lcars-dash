@@ -1,18 +1,18 @@
 
 div.lcars.left.bottom.cornered {
-    border-bottom-left-radius: 80px;
+    border-bottom-left-radius: 60px;
 }
 
 div.lcars.left.top.cornered {
-    border-top-left-radius: 80px;
+    border-top-left-radius: 60px;
 }
 
 div.lcars.right.bottom.cornered {
-    border-bottom-right-radius: 80px;
+    border-bottom-right-radius: 60px;
 }
 
 div.lcars.right.top.cornered {
-    border-top-right-radius: 80px;
+    border-top-right-radius: 60px;
 }
 
 div.lcars.h.bar.rounded.minor.left {
@@ -33,16 +33,4 @@ div.lcars.h.bar.rounded.major.left {
 div.lcars.h.bar.rounded.major.right {
     border-bottom-right-radius: 40px;
     border-top-right-radius: 40px;
-}
-
-div.lcars.left.top.cornered {
-    border-top-left-radius: 80px;
-}
-
-div.lcars.right.bottom.cornered {
-    border-bottom-right-radius: 80px;
-}
-
-div.lcars.right.top.cornered {
-    border-top-right-radius: 80px;
 }
