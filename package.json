@@ -1,66 +1,66 @@
 {
-  "name": "lcars-dash",
-  "version": "0.0.1",
-  "description": "LCARS inspired multi-window dashboard",
-  "main": "index.js",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/RefugeSystems/lcars-dash.git"
-  },
-  "keywords": [
-    "lcars",
-    "angular",
-    "dashboard"
-  ],
-  "author": "aetherwalker",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RefugeSystems/lcars-dash/issues"
-  },
-  "homepage": "https://github.com/RefugeSystems/lcars-dash#readme",
-  "devDependencies": {
-    "angular-mocks": "^1.6.2",
-    "eslint": "^3.1.1",
-    "eslint-plugin-angular": "^1.3.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-templify": "0.0.4",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-contrib-yuidoc": "^1.0.0",
-    "grunt-env": "^0.4.4",
-    "grunt-eslint": "^17.3.1",
-    "grunt-jasmine-nodejs": "^1.4.3",
-    "grunt-karma": "^2.0.0",
-    "grunt-ng-annotate": "^2.0.2",
-    "grunt-open": "^0.2.3",
-    "karma": "^1.5.0",
-    "karma-html-live-reporter": "^0.1.5",
-    "karma-spec-reporter": "0.0.30",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-jasmine": "^1.1.0",
-    "karma-junit-reporter": "^1.2.0",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "load-grunt-tasks": "^3.3.0"
-  },
-  "dependencies": {
-    "angular": "^1.6.3",
-    "angular-route": "^1.6.6",
-    "angular-utils-pagination": "^0.11.1",
-    "cytoscape": "^3.2.1",
-    "cytoscape-cola": "^2.0.0",
-    "d3": "^5.0.0",
-    "grunt-concurrent": "^2.3.1",
-    "jquery": "^3.1.1",
-    "ng-showdown": "^1.1.0",
-    "socket.io": "^1.7.3"
-  }
+	"name": "lcars-dash",
+	"version": "0.0.1",
+	"description": "LCARS inspired multi-window dashboard",
+	"main": "index.js",
+	"scripts": {
+		"test": "grunt test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/RefugeSystems/lcars-dash.git"
+	},
+	"keywords": [
+		"lcars",
+		"angular",
+		"dashboard"
+	],
+	"author": "aetherwalker",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RefugeSystems/lcars-dash/issues"
+	},
+	"homepage": "https://github.com/RefugeSystems/lcars-dash#readme",
+	"devDependencies": {
+		"angular-mocks": "^1.6.2",
+		"eslint": "^3.1.1",
+		"eslint-plugin-angular": "^1.3.0",
+		"grunt": "^1.0.1",
+		"grunt-contrib-concat": "^1.0.1",
+		"grunt-contrib-connect": "^1.0.2",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-sass": "^1.0.0",
+		"grunt-contrib-templify": "0.0.4",
+		"grunt-contrib-uglify": "^2.0.0",
+		"grunt-contrib-watch": "^1.0.0",
+		"grunt-contrib-yuidoc": "^1.0.0",
+		"grunt-env": "^0.4.4",
+		"grunt-eslint": "^17.3.1",
+		"grunt-jasmine-nodejs": "^1.4.3",
+		"grunt-karma": "^2.0.0",
+		"grunt-ng-annotate": "^2.0.2",
+		"grunt-open": "^0.2.3",
+		"karma": "^1.5.0",
+		"karma-html-live-reporter": "^0.1.5",
+		"karma-spec-reporter": "0.0.30",
+		"karma-chrome-launcher": "^2.0.0",
+		"karma-firefox-launcher": "^1.0.0",
+		"karma-ie-launcher": "^1.0.0",
+		"karma-jasmine": "^1.1.0",
+		"karma-junit-reporter": "^1.2.0",
+		"karma-phantomjs-launcher": "^1.0.2",
+		"load-grunt-tasks": "^3.3.0"
+	},
+	"dependencies": {
+		"angular": "^1.6.3",
+		"angular-route": "^1.6.6",
+		"angular-utils-pagination": "^0.11.1",
+		"cytoscape": "^3.2.1",
+		"cytoscape-cola": "^2.0.0",
+		"d3": "^5.0.0",
+		"grunt-concurrent": "^2.3.1",
+		"jquery": "^3.1.1",
+		"ng-showdown": "^1.1.0",
+		"socket.io": "^1.7.3"
+	}
 }
