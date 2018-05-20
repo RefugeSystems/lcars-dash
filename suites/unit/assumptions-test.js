@@ -58,4 +58,21 @@ describe("Assumptions for unit testing", function() {
 			expect(testing.fake()).toBe(20);
 		});
 	});
+	
+	describe("VueJS", function() {
+		it("Exists", function() {
+			expect(Vue).toBeDefined();
+			expect(function() {
+				new Vue({});
+			}).not.toThrow();
+		});
+		
+		// How to fully Mock?
+		it("Can mock appropriately", function() {
+			expect(function() {
+				Vue.component("test", {});
+				new Vue({});
+			}).not.toThrow();
+		});
+	});
 });

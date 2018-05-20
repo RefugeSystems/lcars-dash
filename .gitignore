@@ -10,3 +10,5 @@ jspm_packages
 build
 docs
 reports
+suites/support/*templates*.js
+client/*templates.js

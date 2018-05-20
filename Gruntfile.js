@@ -1,16 +1,19 @@
+
 module.exports = function(grunt) {
 
 	require("load-grunt-tasks")(grunt);
 
 	grunt.loadNpmTasks("grunt-env");
-	grunt.loadNpmTasks("grunt-eslint");
+	grunt.loadNpmTasks("grunt-mkdir");
+	grunt.loadNpmTasks("grunt-karma");
+	grunt.loadNpmTasks("gruntify-eslint");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-connect");
+	grunt.loadNpmTasks("grunt-contrib-templify");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-contrib-yuidoc");
-	grunt.loadNpmTasks("grunt-karma");
 
 	var config = {
 		"pkg": grunt.file.readJSON("package.json"),
@@ -25,10 +28,12 @@ module.exports = function(grunt) {
 					"sessionStorage",
 					"localStorage",
 					"cytoscape",
+					"Promise",
 					"window",
 					"location",
 					"document",
 					"angular",
+					"Vue",
 					"inject",
 					"module",
 					"cola",
@@ -64,10 +69,17 @@ module.exports = function(grunt) {
 				},
 				"envs": ["browser", "node", "jasmine"]
 			},
-			"client": ["client/angularjs-scripts/**/*.js",
+			"client": ["client/scripts-angularjs/**/*.js",
 			         "suites/integration/**/*.js",
 			         "suites/unit/**/*.js",
 			         "suites/functional/**/*.js"]
+		},
+		"mkdir": {
+			"build": {
+				"options": {
+					"create": ["build"]
+				}
+			}
 		},
 		"concat": {
 			"clientcs": {
@@ -82,16 +94,18 @@ module.exports = function(grunt) {
 				},
 				"src": [
 				      "client/library/*.js",
-				      "client/angularjs-scripts/modules/*.js",
-				      "client/angularjs-scripts/configuration/*.js",
-				      "client/angularjs-scripts/configuration/*.js",
-				      "client/angularjs-scripts/providers/*.js",
-				      "client/angularjs-scripts/filters/*.js",
-				      "client/angularjs-scripts/factory/*.js",
-				      "client/angularjs-scripts/directives/*.js",
-				      "client/angularjs-scripts/controllers/*.js",
-				      "client/angularjs-scripts/services/*.js",
-				      "client/vue-scripts/**/*.js"
+				      "client/scripts-angularjs/modules/*.js",
+				      "client/scripts-angularjs/configuration/*.js",
+				      "client/scripts-angularjs/configuration/*.js",
+				      "client/scripts-angularjs/providers/*.js",
+				      "client/scripts-angularjs/filters/*.js",
+				      "client/scripts-angularjs/factory/*.js",
+				      "client/scripts-angularjs/directives/*.js",
+				      "client/scripts-angularjs/controllers/*.js",
+				      "client/scripts-angularjs/services/*.js",
+				      "client/vue-templates.js",
+				      "client/scripts-vue/*/*.js",
+				      "client/scripts-vue/index.js"
 				],
 				"dest": "client/lcars.js"
 			},
@@ -109,46 +123,33 @@ module.exports = function(grunt) {
 			},
 			"angularjs": {
 				"src": [
-				      "client/angularjs-scripts/modules/*.js",
-				      "client/angularjs-scripts/configuration/*.js",
-				      "client/angularjs-scripts/configuration/*.js",
-				      "client/angularjs-scripts/providers/*.js",
-				      "client/angularjs-scripts/filters/*.js",
-				      "client/angularjs-scripts/factory/*.js",
-				      "client/angularjs-scripts/directives/*.js",
-				      "client/angularjs-scripts/controllers/*.js",
-				      "client/angularjs-scripts/services/*.js"],
+				      "client/scripts-angularjs/modules/*.js",
+				      "client/scripts-angularjs/configuration/*.js",
+				      "client/scripts-angularjs/configuration/*.js",
+				      "client/scripts-angularjs/providers/*.js",
+				      "client/scripts-angularjs/filters/*.js",
+				      "client/scripts-angularjs/factory/*.js",
+				      "client/scripts-angularjs/directives/*.js",
+				      "client/scripts-angularjs/controllers/*.js",
+				      "client/scripts-angularjs/services/*.js"],
 				"dest": "dist/lcars-angular.js"
 			},
 			"vuejs": {
+				"options": {
+					"banner": "LCARS = {}; LCARS.install = function(Vue, options) {",
+					"footer": "};"
+				},
 				"src": [
-				      "client/vue-scripts/modules/*.js",
-				      "client/vue-scripts/configuration/*.js",
-				      "client/vue-scripts/configuration/*.js",
-				      "client/vue-scripts/providers/*.js",
-				      "client/vue-scripts/filters/*.js",
-				      "client/vue-scripts/factory/*.js",
-				      "client/vue-scripts/directives/*.js",
-				      "client/vue-scripts/controllers/*.js",
-				      "client/vue-scripts/services/*.js"],
+				      "client/scripts-vue/*/*.js"],
 				"dest": "dist/lcars-vue.js"
 			},
 			"distributeAngular": {
-				"src": [
-				      "node_modules/cytoscape/dist/cytoscape.min.js",
-				      "node_modules/cytoscape-cola/cola.js",
-				      "node_modules/cytoscape-cola/cytoscape-cola.js",
-				      "client/library/*.js",
-				      "dist/lcars-angular.min.js"],
+				"src": ["dist/lcars-angular.min.js"],
 				"dest": "dist/lcars-angular.min.js"
 			},
 			"distributeVue": {
-				"src": [
-				      "node_modules/cytoscape/dist/cytoscape.min.js",
-				      "node_modules/cytoscape-cola/cola.js",
-				      "node_modules/cytoscape-cola/cytoscape-cola.js",
-				      "client/library/*.js",
-				      "dist/lcars-vue.min.js"],
+				"src": ["dist/vue-templates.js",
+					"dist/lcars-vue.min.js"],
 				"dest": "dist/lcars-vue.min.js"
 			},
 			"distributeCSS": {
@@ -213,19 +214,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		"templify": {
-			"testing": {
-				"templates": [{
-					"path": "client/templates/",
-					"rewrite": function(path) {
-						return path.substring(path.lastIndexOf("/") + 1);
-					}
-				}],
-				"suffixes": [".html"],
-				"mode": "karma-angular",
-				"output": "../../client/templates.js"
-			}
-		},
 		"open": {
 			"client": {
 				"path": "http://127.0.0.1:3080/"
@@ -256,11 +244,11 @@ module.exports = function(grunt) {
 					},
 					"livereloadOnError": false
 				},
-				"files": ["client/angularjs-scripts/**/*.js", "client/vue-scripts/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
+				"files": ["client/scripts-angularjs/**/*.js", "client/scripts-vue/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
 				"tasks": ["dev"]
 			},
 			"docs": {
-				"files": ["client/angularjs-scripts/**/*.js", "client/vue-scripts/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
+				"files": ["client/scripts-angularjs/**/*.js", "client/scripts-vue/**/*.js", "client/styles/**/*.css", "client/**/*.html", "client/*.html"],
 				"tasks": ["yuidoc"]
 			}
 		},
@@ -273,43 +261,32 @@ module.exports = function(grunt) {
 			"angular": {
 				"options": {
 					"sourceMap": true,
-					"sourceMapName": "./dist/angularModule.map"
+					"sourceMapName": "./dist/lcars-angular.min.js.map"
 				},
 				"files": {
-					"./dist/angularModule.js": [
-					      "client/angularjs-scripts/modules/*.js",
-					      "client/angularjs-scripts/configuration/*.js",
-					      "client/angularjs-scripts/configuration/*.js",
-					      "client/angularjs-scripts/providers/*.js",
-					      "client/angularjs-scripts/filters/*.js",
-					      "client/angularjs-scripts/factory/*.js",
-					      "client/angularjs-scripts/directives/*.js",
-					      "client/angularjs-scripts/controllers/*.js",
-					      "client/angularjs-scripts/services/*.js"]
+					"./dist/lcars-angular.min.js": [
+					      "client/scripts-angularjs/modules/*.js",
+					      "client/scripts-angularjs/configuration/*.js",
+					      "client/scripts-angularjs/configuration/*.js",
+					      "client/scripts-angularjs/providers/*.js",
+					      "client/scripts-angularjs/filters/*.js",
+					      "client/scripts-angularjs/factory/*.js",
+					      "client/scripts-angularjs/directives/*.js",
+					      "client/scripts-angularjs/controllers/*.js",
+					      "client/scripts-angularjs/services/*.js"]
 				}
 			},
 			"vue": {
 				"options": {
 					"sourceMap": true,
-					"sourceMapName": "./dist/vueModule.map"
+					"sourceMapName": "./dist/lcars-vue.min.js.map",
+					"banner": "LCARS = {}; LCARS.install = function(Vue, options) {",
+					"footer": "\r\n};"
 				},
 				"files": {
-					"./dist/vueModule.js": [
-					      "client/vue-scripts/modules/*.js",
-					      "client/vue-scripts/configuration/*.js",
-					      "client/vue-scripts/configuration/*.js",
-					      "client/vue-scripts/providers/*.js",
-					      "client/vue-scripts/filters/*.js",
-					      "client/vue-scripts/factory/*.js",
-					      "client/vue-scripts/directives/*.js",
-					      "client/vue-scripts/controllers/*.js",
-					      "client/vue-scripts/services/*.js"]
-				}
-			},
-			"distribution": {
-				"files": {
-					"./dist/lcars-angular.min.js": ["./dist/lcars-angular.js"],
-					"./dist/lcars-vue.min.js": ["./dist/lcars-vue.js"]
+					"./dist/lcars-vue.min.js": [
+					      "build/vue-templates.js",
+					      "client/scripts-vue/*/*.js"]
 				}
 			}
 		},
@@ -337,18 +314,18 @@ module.exports = function(grunt) {
 				/*logLevel: "debug",*/
 				"files": ["node_modules/angular/angular.js",
 	        			"node_modules/angular-mocks/angular-mocks.js",
-	        			"node_modules/angular-mocks/angular-mocks.js",
+	        			"node_modules/vue/dist/vue.min.js",
 					    "node_modules/jquery/dist/jquery.min.js",
 	        			"suites/support/*.js",
 	    				"scenarios/data/*.js",
 						"client/templates.js",
-						"client/angularjs-scripts/modules/*.js",
-						"client/angularjs-scripts/configuration/*.js",
-						"client/angularjs-scripts/controllers/*.js",
-						"client/angularjs-scripts/directives/*.js",
-						"client/angularjs-scripts/providers/*.js",
-						"client/angularjs-scripts/services/*.js",
-						"client/angularjs-scripts/filters/*.js",
+						"client/scripts-angularjs/modules/*.js",
+						"client/scripts-angularjs/configuration/*.js",
+						"client/scripts-angularjs/controllers/*.js",
+						"client/scripts-angularjs/directives/*.js",
+						"client/scripts-angularjs/providers/*.js",
+						"client/scripts-angularjs/services/*.js",
+						"client/scripts-angularjs/filters/*.js",
 						"suites/unit/*.js"]
 			},
 			"unit": {
@@ -446,6 +423,54 @@ module.exports = function(grunt) {
 				"htmlLiveReporter": null
 			}
 		},
+		"templify": {
+			"options": {
+			},
+			"testingVue": {
+				"templates": [{
+					"path": "client/scripts-vue/**/*.html",
+					"rewrite": function(name) {
+						return name.replace(/.*client[\/\\]scripts-vue[\/\\]/, "");
+					}
+				}],
+				"suffixes": [".html"],
+				"mode": "vue",
+				"output": "suites/support/templates-vue.js"
+			},
+			"testingAngular": {
+				"templates": [{
+					"path": "client/scripts-angular/**/*.html",
+					"rewrite": function(name) {
+						return name.replace(/.*client[\/\\]scripts-angular[\/\\]/, "");
+					}
+				}],
+				"suffixes": [".html"],
+				"mode": "angular",
+				"output": "suites/support/templates-angular.js"
+			},
+			"clientVue": {
+				"templates": [{
+					"path": "client/scripts-vue/**/*.html",
+					"rewrite": function(name) {
+						return name.replace(/.*client[\/\\]scripts-vue[\/\\]/, "");
+					}
+				}],
+				"suffixes": [".html"],
+				"mode": "vue",
+				"output": "client/vue-templates.js"
+			},
+			"vue": {
+				"templates": [{
+					"path": "client/scripts-vue/**/*.html",
+					"rewrite": function(name) {
+						return name.replace(/.*client[\/\\]scripts-vue[\/\\]/, "");
+					}
+				}],
+				"suffixes": [".html"],
+				"mode": "vue",
+				"output": "./build/vue-templates.js"
+			}
+		},
 		"yuidoc": {
 			"compile": {
 				"name": "<%= pkg.name %>",
@@ -453,7 +478,7 @@ module.exports = function(grunt) {
 				"version": "<%= pkg.version %>",
 				"url": "<%= pkg.homepage %>",
 				"options": {
-					"paths": ["./client/angularjs-scripts/"],
+					"paths": ["./client/scripts-angularjs/"],
 					"outdir": "./docs",
 					"exclude": "**/angular.js, **/jquery.js",
 					"markdown": true
@@ -483,7 +508,7 @@ module.exports = function(grunt) {
 	grunt.registerTask("default", ["lint", "concurrent:development"]);
 
 	grunt.registerTask("lint", ["eslint:client"]);
-	grunt.registerTask("dev", ["eslint:client", "concat:clientjs", "concat:client", "concat:clientcs"]);
+	grunt.registerTask("dev", ["eslint:client", "templify:clientVue", "concat:clientjs", "concat:client", "concat:clientcs"]);
 	grunt.registerTask("prod", ["dev", "ngAnnotate:client", "uglify:client"]);
 
 	grunt.registerTask("headless", []);
@@ -491,9 +516,9 @@ module.exports = function(grunt) {
 	grunt.registerTask("local", ["default"]);
 	grunt.registerTask("document", ["eslint:client", "yuidoc", "connect:docs", "open:docs", "watch:docs"]);
 	grunt.registerTask("general", ["dev", "connect:server", "open:client", "watch:client"]);
-	grunt.registerTask("testing", ["templify:testing", "open:karma", "karma:continuous"]);
+	grunt.registerTask("testing", ["templify:testingVue", "templify:testingAngular", "open:karma", "karma:continuous"]);
 	grunt.registerTask("test", ["eslint:client", "templify:testing", "karma:deployment"]);
 	
 //	grunt.registerTask("distribute", ["concat:angularjs", "concat:vuejs", "uglify:distribution", "concat:distributeAngular", "concat:distributeVue", "concat:distributeCSS"]);
-	grunt.registerTask("distribute", ["uglify:angular", "uglify:vue", "concat:distributeCSS"]);
+	grunt.registerTask("distribute", ["mkdir:build", "templify:vue", "uglify:angular", "uglify:vue", "concat:distributeCSS"]);
 };

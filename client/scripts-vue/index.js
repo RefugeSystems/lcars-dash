@@ -1,4 +1,5 @@
-var lcars = new Vue({
+
+new Vue({
 	"el": "#lcars",
 	"data": {
 		"message": "Hello world",
@@ -15,5 +16,8 @@ var lcars = new Vue({
 		}
 	},
 	computed: {
+		"fullName": function() {
+			return this.name.first + " " + this.name.last;
+		}
 	}
 });
