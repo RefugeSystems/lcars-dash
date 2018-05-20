@@ -1,0 +1,87 @@
+.lcars {
+	font-family: Sans-Serif;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+section.lcars.display,
+div.lcars.display {
+	position: relative;
+    vertical-align: top;
+	display: inline-block;
+    font-size: 0px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+section.lcars.display.bottom {
+	padding-top: 10px;
+}
+
+section.lcars.display.top {
+	padding-bottom: 10px;
+}
+
+section.lcars.display.w1 {
+	width: 150px;
+}
+
+section.lcars.display.w2 {
+	width: 300px;
+}
+
+section.lcars.display.w3 {
+	width: 450px;
+}
+
+section.lcars.display.w4 {
+	width: 600px;
+}
+
+section.lcars.display.w5 {
+	width: 750px;
+}
+
+section.lcars.display.w6 {
+	width: 900px;
+}
+
+section.lcars.display.wf {
+	width: 100%;
+}
+
+section.lcars.display.divide {
+	width: 5px;
+}
+
+.lcars.bottom div.lcars.segment {
+	border-top: 5px solid transparent;
+}
+
+div.lcars.display div.lcars.segment.bottom {
+	border-top: 5px solid transparent;
+}
+
+div.lcars.display div.lcars.segment {
+	position: relative;
+	height: 40px;
+	width: 100%;
+}
+
+.lcars.segment button.lcars {
+	width: 145px;
+	height: 40px;
+	padding: 0px;
+	margin: 0px 5px 0px 0px;
+}
+
+.lcars.segment span.lcars.data {
+	
+}
+
+.lcars.segment span.lcars.readout {
+	position: relative;
+	width: 100%;
+}

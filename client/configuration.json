@@ -10,6 +10,6 @@
 	},
 	"libraries": [{
 		"name": "Beta",
-		"url": "ws://localhost/"
+		"url": "ws://192.168.13.40:4000/library"
 	}]
 }

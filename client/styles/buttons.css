@@ -1,3 +1,9 @@
+button.lcars {
+	font-size: 12px;
+	border: 0px;
+	cursor: pointer;
+}
+
 div.lcars.v.right {
 	text-align: right;
 }
@@ -60,8 +66,6 @@ div.lcars.v button.lcars {
 	width: 240px;
 	height: 65px;
 	
-	cursor: pointer;
-	
 	line-height: 20px;
 	text-transform: uppercase;
 	font-weight: 600;
@@ -112,21 +116,35 @@ div.lcars.v button.lcars.hFlow {
 	height: inherit;
 }
 
-div.lcars.v button.lcars.txT span {
+div.lcars button.lcars.txT span {
+	position: absolute;
 	top: 4px;
 	bottom: inherit;
 }
 
-div.lcars.v button.lcars.txB span {
+div.lcars button.lcars.txB span {
+	position: absolute;
 	bottom: 4px;
 	top: inherit;
 }
 
+div.lcars.display button.lcars.txL span {
+	position: absolute;
+	left: 3px;
+}
+
+div.lcars.display button.lcars.txR span {
+	position: absolute;
+	right: 8px;
+}
+
 div.lcars.v button.lcars.txL span {
+	position: absolute;
 	left: 88px;
 }
 
 div.lcars.v button.lcars.txR span {
+	position: absolute;
 	right: 88px;
 }
 
@@ -170,7 +188,6 @@ button.lcars span {
 	line-height: 20px;
 	text-transform: uppercase;
 	font-weight: 600;
-	position: absolute;
 	display: inline-block;
 	width: 144px;
 }
@@ -220,8 +237,6 @@ button.lcars.configuration {
 	background-color: #bb6622;
 	color: black;
 }
-
-
 
 button.lcars.functional {
 	background-color: #000088;

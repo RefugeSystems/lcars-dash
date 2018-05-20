@@ -34,3 +34,19 @@ div.lcars.h.bar.rounded.major.right {
     border-bottom-right-radius: 40px;
     border-top-right-radius: 40px;
 }
+
+button.lcars.left.top.rounded {
+	border-top-left-radius: 20px;
+}
+
+button.lcars.left.bottom.rounded {
+	border-bottom-left-radius: 20px;
+}
+
+button.lcars.right.top.rounded {
+	border-top-right-radius: 20px;
+}
+
+button.lcars.right.bottom.rounded {
+	border-bottom-right-radius: 20px;
+}

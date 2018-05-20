@@ -1,0 +1,13 @@
+input.lcars {
+	background-color: transparent;
+	border: 0px;
+}
+
+input.lcars.standard {
+	height: 40px;
+	width: 145px;
+	margin-right: 5px;
+	padding: 0px 8px;
+}
+
+

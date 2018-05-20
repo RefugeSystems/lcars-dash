@@ -1,0 +1,881 @@
+div.lcars.bar {
+	position: absolute;
+}
+
+div.lcars.bar.h {
+	z-index: 1;
+}
+
+div.lcars.bar.v.divide {
+	z-index: 2;
+}
+
+div.lcars.display {
+    z-index: 5;
+}
+
+div.lcars.block.passive {
+	background-color: #ff9933;
+}
+
+div.lcars.block.active {
+	background-color: #99ccff;
+}
+
+div.lcars.block.option {
+	background-color: #882211;
+}
+
+div.lcars.block.property {
+	background-color: #4455bb;
+}
+
+div.lcars.block.note {
+	background-color: #664466;
+}
+
+div.lcars.block.configuration {
+	background-color: #bb6622;
+}
+
+div.lcars.block.functional {
+	background-color: #000088;
+}
+
+div.lcars.block.warning {
+	background-color: #bbaa55;
+}
+
+div.lcars.block.exception {
+	background-color: #882211;
+}
+
+
+div.lcars.container {
+	position: relative;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+div.lcars.column {
+	position: relative;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+div.lcars.display {
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+div.lcars.v {
+	width: 240px;
+}
+
+div.lcars.h {
+	height: 30px;
+}
+
+div.lcars.top {
+	top: 0px;
+}
+
+div.lcars.bottom {
+	bottom: 0px;
+}
+
+div.lcars.right {
+	right: 0px;
+}
+
+div.lcars.left {
+	left: 0px;
+}
+
+div.lcars.container div.lcars.h.bar.right {
+	left: 240px;
+}
+
+div.lcars.container div.lcars.h.bar.left {
+	right: 240px;
+}
+
+div.lcars.container.divide {
+	height: 0px;
+	width: 100%;
+	margin: 5px;
+}
+
+div.lcars.display.tr {
+    position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 160px;
+    padding: 5px 5px 5px 40px;
+	border-bottom-left-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.tl {
+    position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 160px;
+    padding: 5px 40px 5px 5px;
+	border-bottom-right-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.br {
+    position: absolute;
+    top: 30px;
+	bottom: 0px;
+	right: 0px;
+	left: 160px;
+    padding: 5px 5px 5px 40px;
+	border-top-left-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+div.lcars.display.bl {
+    position: absolute;
+    top: 30px;
+	bottom: 0px;
+	left: 0px;
+	right: 160px;
+    padding: 5px 40px 5px 5px;
+	border-top-right-radius: 30px;
+	z-index: 3;
+	background-color: black;
+}
+
+button.lcars {
+	font-size: 12px;
+	border: 0px;
+	cursor: pointer;
+}
+
+div.lcars.v.right {
+	text-align: right;
+}
+
+div.lcars.v.left {
+	text-align: left;
+}
+
+div.lcars.v.top {
+	
+}
+
+div.lcars.v.bottom {
+	text-align: left;
+}
+
+div.lcars.v.right.divide {
+	border-left: 5px solid black;
+}
+
+div.lcars.v.left.divide {
+	border-right: 5px solid black;
+}
+
+div.lcars.v.top.divide {
+	
+}
+
+div.lcars.v.bottom.divide {
+	
+}
+
+div.lcars.v button.lcars.corner {
+	border-width: 0px !important;
+}
+
+div.lcars.v.bottom.left button.lcars.corner {
+	border-bottom-left-radius: 80px;
+}
+
+div.lcars.v.bottom.right button.lcars.corner {
+	border-bottom-right-radius: 80px;
+}
+
+div.lcars.v.top.left button.lcars.corner {
+	border-top-left-radius: 80px;
+}
+
+div.lcars.v.top.right button.lcars.corner {
+	border-top-right-radius: 80px;
+}
+/*
+div.lcars.right button.lcars span {
+	left: 8px;
+}
+*/
+div.lcars.v button.lcars {
+	/*position: relative;
+	display: inline-block;*/
+	width: 240px;
+	height: 65px;
+	
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 600;
+    position: relative;
+}
+
+div.lcars.v button.lcars.h05 {
+	height: 35px;
+}
+
+div.lcars.v button.lcars.h04 {
+	height: 30px;
+}
+
+div.lcars.v button.lcars.h2 {
+	height: 95px;
+}
+
+div.lcars.v button.lcars.h25 {
+	height: 90px;
+}
+
+div.lcars.v button.lcars.h3 {
+	height: 125px;
+}
+
+div.lcars.v button.lcars.h35 {
+	height: 120px;
+}
+
+div.lcars.v button.lcars.h4 {
+	height: 155px;
+}
+
+div.lcars.v button.lcars.h45 {
+	height: 150px;
+}
+
+div.lcars.v button.lcars.h5 {
+	height: 185px;
+}
+
+div.lcars.v button.lcars.h55 {
+	height: 180px;
+}
+
+div.lcars.v button.lcars.hFlow {
+	height: inherit;
+}
+
+div.lcars button.lcars.txT span {
+	position: absolute;
+	top: 4px;
+	bottom: inherit;
+}
+
+div.lcars button.lcars.txB span {
+	position: absolute;
+	bottom: 4px;
+	top: inherit;
+}
+
+div.lcars.display button.lcars.txL span {
+	position: absolute;
+	left: 3px;
+}
+
+div.lcars.display button.lcars.txR span {
+	position: absolute;
+	right: 8px;
+}
+
+div.lcars.v button.lcars.txL span {
+	position: absolute;
+	left: 88px;
+}
+
+div.lcars.v button.lcars.txR span {
+	position: absolute;
+	right: 88px;
+}
+
+div.lcars.v.bottom button.lcars {
+	border-bottom: 5px solid black;
+	border-right: 0px;
+	border-left: 0px;
+	border-top: 0px;
+}
+
+div.lcars.v.top button.lcars {
+	border-top: 5px solid black;
+	border-bottom: 0px;
+	border-right: 0px;
+	border-left: 0px;
+}
+
+div.lcars.bottom button.lcars span.auto {
+	bottom: 4px;
+}
+
+div.lcars.top button.lcars span.auto {
+	top: 4px;
+}
+
+div.lcars.left button.lcars span.auto {
+	right: 8px;
+}
+
+div.lcars.right button.lcars span.auto {
+	left: 8px;
+}
+
+div.lcars.v button.lcars:hover,
+div.lcars.v button.lcars:active,
+div.lcars.v button.lcars:focus {
+	outline: none;
+}
+
+button.lcars span {
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 600;
+	display: inline-block;
+	width: 144px;
+}
+
+.lcars.left button.lcars {
+	text-align: right;
+}
+
+.lcars.right button.lcars {
+	text-align: left;
+}
+
+button.lcars.bottom span {
+	bottom: 7px;
+}
+
+button.lcars.top span {
+	top: 7px;
+}
+
+button.lcars.passive {
+	background-color: #ff9933;
+	color: black;
+}
+
+button.lcars.active {
+	background-color: #99ccff;
+	color: black;
+}
+
+button.lcars.option {
+	background-color: #882211;
+	color: black;
+}
+
+button.lcars.property {
+	background-color: #4455bb;
+	color: black;
+}
+
+button.lcars.note {
+	background-color: #664466;
+	color: black;
+}
+
+button.lcars.configuration {
+	background-color: #bb6622;
+	color: black;
+}
+
+button.lcars.functional {
+	background-color: #000088;
+	color: black;
+}
+
+button.lcars.warning {
+	background-color: #bbaa55;
+	color: black;
+}
+
+button.lcars.exception {
+	background-color: #882211;
+	color: black;
+}
+
+.lcars {
+	font-family: Sans-Serif;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+section.lcars.display,
+div.lcars.display {
+	position: relative;
+    vertical-align: top;
+	display: inline-block;
+    font-size: 0px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+section.lcars.display.bottom {
+	padding-top: 10px;
+}
+
+section.lcars.display.top {
+	padding-bottom: 10px;
+}
+
+section.lcars.display.w1 {
+	width: 150px;
+}
+
+section.lcars.display.w2 {
+	width: 300px;
+}
+
+section.lcars.display.w3 {
+	width: 450px;
+}
+
+section.lcars.display.w4 {
+	width: 600px;
+}
+
+section.lcars.display.w5 {
+	width: 750px;
+}
+
+section.lcars.display.w6 {
+	width: 900px;
+}
+
+section.lcars.display.wf {
+	width: 100%;
+}
+
+section.lcars.display.divide {
+	width: 5px;
+}
+
+.lcars.bottom div.lcars.segment {
+	border-top: 5px solid transparent;
+}
+
+div.lcars.display div.lcars.segment.bottom {
+	border-top: 5px solid transparent;
+}
+
+div.lcars.display div.lcars.segment {
+	position: relative;
+	height: 40px;
+	width: 100%;
+}
+
+.lcars.segment button.lcars {
+	width: 145px;
+	height: 40px;
+	padding: 0px;
+	margin: 0px 5px 0px 0px;
+}
+
+.lcars.segment span.lcars.data {
+	
+}
+
+.lcars.segment span.lcars.readout {
+	position: relative;
+	width: 100%;
+}
+
+body {
+	background: black;
+	display: block;
+	margin: 10px;
+	padding: 0px;
+	border: 0px;
+	
+	text-transform: uppercase;
+	font-family: sans-serif;
+}
+
+.lcars-panel {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+div.lcars-container {
+	position: relative;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+div.lcars {
+	display: inline-block;
+}
+
+h1 {
+	margin-top: 0px;
+}
+
+
+div.lcars.height.x1 div.lcars.container.height,
+div.lcars.height.x1 div.lcars.bar.height,
+div.lcars.container.height.x1,
+div.lcars.bar.height.x1 {
+	height: 120px;
+}
+
+div.lcars.height.x2 div.lcars.container.height,
+div.lcars.height.x2 div.lcars.bar.height,
+div.lcars.container.height.x2,
+div.lcars.bar.height.x2 {
+	height: 190px;
+}
+
+div.lcars.height.x3 div.lcars.container.height,
+div.lcars.height.x3 div.lcars.bar.height,
+div.lcars.container.height.x3,
+div.lcars.bar.height.x3 {
+	height: 260px;
+}
+
+div.lcars.height.x4 div.lcars.container.height,
+div.lcars.height.x4 div.lcars.bar.height,
+div.lcars.container.height.x4,
+div.lcars.bar.height.x4 {
+	height: 330px;
+}
+
+div.lcars.height.x5 div.lcars.container.height,
+div.lcars.height.x5 div.lcars.bar.height,
+div.lcars.container.height.x5,
+div.lcars.bar.height.x5 {
+	height: 400px;
+}
+
+div.lcars.height.x6 div.lcars.container.height,
+div.lcars.height.x6 div.lcars.bar.height,
+div.lcars.container.height.x6,
+div.lcars.bar.height.x6 {
+	height: 470px;
+}
+
+div.lcars.height.x7 div.lcars.container.height,
+div.lcars.height.x7 div.lcars.bar.height,
+div.lcars.container.height.x7,
+div.lcars.bar.height.x7 {
+	height: 540px;
+}
+
+div.lcars.height.x8 div.lcars.container.height,
+div.lcars.height.x8 div.lcars.bar.height,
+div.lcars.container.height.x8,
+div.lcars.bar.height.x8 {
+	height: 610px;
+}
+
+div.lcars.height.xF div.lcars.container.height,
+div.lcars.height.xF div.lcars.bar.height,
+div.lcars.container.height.xF,
+div.lcars.bar.height.xF {
+	height: 100%;
+}
+
+div.lcars.height.xFlow div.lcars.container.height,
+div.lcars.height.xFlow div.lcars.bar.height,
+div.lcars.container.height.xFlow,
+div.lcars.bar.height.xFlow {
+	height: inherit;
+}
+
+div.lcars.height.x1 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x1 {
+    height: 80px;
+}
+
+div.lcars.height.x1 div.lcars.display.major.height,
+div.lcars.display.major.height.x1 {
+    height: 50px;
+}
+
+div.lcars.height.x2 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x2 {
+    height: 150px;
+}
+
+div.lcars.height.x2 div.lcars.display.major.height,
+div.lcars.display.major.height.x2 {
+    height: 120px;
+}
+
+div.lcars.height.x3 div.lcars.display.minor.height,
+div.lcars.display.minor.height.x3 {
+    height: 220px;
+}
+
+div.lcars.height.x3 div.lcars.display.major.height,
+div.lcars.display.major.height.x3 {
+    height: 190px;
+}
+
+div.lcars.height.xFlow div.lcars.display.height,
+div.lcars.display.height.xFlow {
+    height: inherit;
+}
+
+div.lcars.height.xF div.lcars.display.minor.height,
+div.lcars.display.minor.height.xF {
+    top: 0px;
+    bottom: 30px;
+}
+
+div.lcars.height.xF div.lcars.display.major.height,
+div.lcars.display.major.height.xF {
+    top: 0px;
+    bottom: 60px;
+}
+
+.lcars.info.passive {
+	color: #ff9933;
+}
+
+.lcars.info.active {
+	color: #99ccff;
+}
+
+.lcars.info.option {
+	color: #882211;
+}
+
+.lcars.info.property {
+	color: #4455bb;
+}
+
+.lcars.info.note {
+	color: #664466;
+}
+
+.lcars.info.configuration {
+	color: #bb6622;
+}
+
+.lcars.info.functional {
+	color: #000088;
+}
+
+.lcars.info.warning {
+	color: #bbaa55;
+}
+
+.lcars.info.exception {
+	color: #882211;
+}
+
+input.lcars {
+	background-color: transparent;
+	border: 0px;
+}
+
+input.lcars.standard {
+	height: 40px;
+	width: 145px;
+	margin-right: 5px;
+	padding: 0px 8px;
+}
+
+
+
+/* Some References:
+https://codepen.io/Mokurunner/details/eqtHl
+
+*/
+
+.lcars-bar {
+	position: relative;
+	display: inline-block;
+	height: 36px;
+	vertical-align: bottom;
+	padding: 2px;
+}
+
+.lcars-wrapbar {
+	position: relative;
+	display: inline-block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-crossbar {
+	position: relative;
+	display: inline-block;
+	height: 30px;
+	padding: 0px;
+}
+
+.lcars-display {
+	color: #ff9933;
+	text-transform: uppecase;
+}
+
+.lcars-wrapbar button {
+	position: relative;
+	display: block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-wrapbar button {
+	position: relative;
+	display: block;
+	height: 54px;
+	padding: 8px;
+	width: 200px;
+}
+
+.lcars-wrapbar.left-bottom {
+    border-bottom-left-radius: 80px;
+}
+
+.lcars-wrapbar.left-top {
+    border-top-left-radius: 80px;
+}
+
+.lcars-wrapbar.right-bottom {
+    border-bottom-right-radius: 80px;
+}
+
+.lcars-wrapbar.right-top {
+    border-top-right-radius: 80px;
+}
+
+.lcars-bottom {
+	vertical-align: bottom;
+}
+
+.lcars-top {
+	vertical-align: top;
+}
+
+.lcars-button {
+	line-height: 16px;
+	font-size: 16px;
+	color: black;
+	font-weight: 600;
+}
+
+.lcars-information {
+	line-height: 20px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.lcars-bar-end-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.lcars-bar-end-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+div.lcars.left.bottom.cornered {
+    border-bottom-left-radius: 60px;
+}
+
+div.lcars.left.top.cornered {
+    border-top-left-radius: 60px;
+}
+
+div.lcars.right.bottom.cornered {
+    border-bottom-right-radius: 60px;
+}
+
+div.lcars.right.top.cornered {
+    border-top-right-radius: 60px;
+}
+
+div.lcars.h.bar.rounded.minor.left {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+div.lcars.h.bar.rounded.minor.right {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+div.lcars.h.bar.rounded.major.left {
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+}
+
+div.lcars.h.bar.rounded.major.right {
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+button.lcars.left.top.rounded {
+	border-top-left-radius: 20px;
+}
+
+button.lcars.left.bottom.rounded {
+	border-bottom-left-radius: 20px;
+}
+
+button.lcars.right.top.rounded {
+	border-top-right-radius: 20px;
+}
+
+button.lcars.right.bottom.rounded {
+	border-bottom-right-radius: 20px;
+}
+
+.lcars.matrix {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+
+#graph {
+	background-color: green;
+}
+
+#main {
+	
+}
+
+.mapping {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
