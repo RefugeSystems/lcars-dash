@@ -22,6 +22,16 @@ describe("Assumptions for unit testing", function() {
 				done();
 			});
 		});
+		
+		it("Fail correctly", function(done) {
+			var promise = new Promise(function(pass, fail) {
+				fail();
+			});
+			
+			promise.catch(function() {
+				done();
+			});
+		});
 	});
 	
 	describe("jQuery", function() {
